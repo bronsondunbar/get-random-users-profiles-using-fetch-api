@@ -1,0 +1,49 @@
+
+/* Buttons */
+
+.btn {
+
+	border-radius: 0;
+	margin: 5px;
+
+}
+
+.btn-center {
+
+	text-align: center;
+
+}
+
+.btn-default {
+
+	background: $green;
+	color: $white;
+	border: 1px solid $green;
+	transition: $fastTransition;
+
+	&:hover, &:focus {
+
+		background: $white;
+		color: $green;
+		border: 1px solid $green;
+		box-shadow: $lightGreenShadow;
+
+	}
+
+}
+
+.btn-primary {
+
+	background: $gray;
+	color: $white;
+	border: 1px solid $gray;
+
+	&:hover, &:focus {
+
+		background: $white;
+		color: $gray;
+		border: 1px solid $gray;
+
+	}
+
+}

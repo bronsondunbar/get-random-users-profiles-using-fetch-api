@@ -1,0 +1,48 @@
+
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css?family=Anton');
+
+$titleFontFamily: "Anton", sans-serif;
+$titleFontWeight: 400;
+	
+$bodyFontFamily: "Arial", sans-serif;
+
+/* Colours */
+
+$white: #ffffff;
+$gray: #333333;
+$lightGray: #dddddd;
+$green: #3ba30d;
+$purple: #560987;
+
+/* Shadows */
+
+$lightGreenShadow: 0 0 20px rgba(59, 163, 13, 0.6);
+$blackShadow: -12px 0px 23px -14px rgba(0, 0, 0, 0.31);
+
+/* Transitions */
+
+$fastTransition: all 0.3s;
+
+/* Messages */
+
+$lightGreen: #dff0d8;
+$mediumGreen: #3c763d;
+$darkGreen: #093e09;
+
+$lightRed: #f2dede;
+$mediumRed: #a94442;
+$darkRed: #4f0a06;
+
+$lighterBlue: #d9edf7;
+$mediumBlue: #31708f;
+
+/* Screen sizes */
+
+$desktop: 1920px;
+$laptop: 1440px;
+$tabletLandscape: 1024px;
+$tabletPortrait: 768px;
+$mobileLargePortrait: 425px;
+$mobileLargeLandscape: 736px;
