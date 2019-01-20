@@ -3,44 +3,28 @@
 
 $(document).ready(function () {
 
-  $.ajax({
-    url: "https://randomuser.me/api/1.2/?results=50",
-    method: "GET",
-    dataType: "json",
+  var maleUsers = []
+  var femaleUsers = []
 
-    beforeSend: function () {
-      $("body").animate({
-          scrollTop: 0 
-      }, "fast");
+  fetch('https://randomuser.me/api/1.2/?results=50')
+    .then(function(response) {
+      return response.json()
+    })
+    .then(function(data) {
+      var userData = data.results
 
-      $(".loader").css("visibility", "visible");
-      $("body").css("overflow", "hidden");
-    },
+      for (var i = 0; userData.length > i; i++) {
+        if (userData[i].gender == 'male' && userData[i].dob.age >= 30 && userData[i].dob.age <= 40) {
+          maleUsers.push(userData[i])
+        }
 
-    error: function (jqXHR, textStatus, errorThrown) {
-      console.log(jqXHR);
-      console.log(textStatus);
-      console.log(errorThrown);
-    },
+        if (userData[i].gender == 'female' && userData[i].dob.age >= 30 && userData[i].dob.age <= 40) {
+          femaleUsers.push(userData[i])
+        }
+      }
 
-    complete: function (data) {
-
-      console.log(data.responseJSON.results)
-
-      // if (data.responseJSON.nameError != undefined) {
-
-      //   $(".message").removeClass("success");
-      //   $(".message").fadeOut(function () {
-      //     $(".message").html(data.responseJSON.nameError).addClass("error").fadeIn();
-      //   });
-
-      // }
-
-      $(".loader").css("visibility", "hidden");
-      $("body").css("overflow", "scroll");
-
-    }
-  });
+      console.log(femaleUsers)
+    })
 
 })
 
