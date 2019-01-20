@@ -1,12 +1,8 @@
 
 // @codekit-prepend 'lib/jquery.1.12.4.js'
-// @codekit-prepend 'lib/bootstrap.js'
+// @codekit-prepend 'lib/bootstrap.bundle.js'
 
 $(document).ready(function () {
-
-  var maleUsers = []
-  var femaleUsers = []
-
   fetch('https://randomuser.me/api/1.2/?results=50')
     .then(function(response) {
       return response.json()
@@ -14,20 +10,41 @@ $(document).ready(function () {
     .then(function(data) {
       var userData = data.results
 
-      for (var i = 0; userData.length > i; i++) {
-        if (userData[i].gender == 'male' && userData[i].dob.age >= 30 && userData[i].dob.age <= 40) {
-          maleUsers.push(userData[i])
-          document.getElementById("data").innerHTML = "blah"
-        }
-
-        if (userData[i].gender == 'female' && userData[i].dob.age >= 30 && userData[i].dob.age <= 40) {
-          femaleUsers.push(userData[i])
-        }
-      }
+      findMaleUsers(userData)
+      findFemaleUsers(userData)
     })
-
-  console.log(maleUsers)
-
 })
+
+
+
+function findMaleUsers (userData) {
+  var maleUsers = []
+
+  for (var i = 0; userData.length > i; i++) {
+    if (userData[i].gender == 'male' && userData[i].dob.age >= 30 && userData[i].dob.age <= 40) {
+      maleUsers.push(userData[i])
+
+      // Generate male table data
+      document.getElementById("maleUsers").innerHTML += "<tr><td>" + userData[i].name.title + "</td><td>" + userData[i].name.first + "</td><td>" + userData[i].name.last + "</td><td>" + userData[i].dob.age + "</td></tr>"
+    }
+  }
+
+  // return maleUsers
+}
+
+function findFemaleUsers (userData) {
+  var femaleUsers = []
+
+  for (var i = 0; userData.length > i; i++) {
+    if (userData[i].gender == 'female' && userData[i].dob.age >= 30 && userData[i].dob.age <= 40) {
+      femaleUsers.push(userData[i])
+
+      // Generate female table data
+      document.getElementById("femaleUsers").innerHTML += "<tr><td>" + userData[i].name.title + "</td><td>" + userData[i].name.first + "</td><td>" + userData[i].name.last + "</td><td>" + userData[i].dob.age + "</td></tr>"
+    }
+  }
+
+  // return femaleUsers
+}
 
 
