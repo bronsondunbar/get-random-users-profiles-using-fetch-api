@@ -1,5 +1,6 @@
 
 // @codekit-prepend 'lib/jquery.1.12.4.js'
+// @codekit-prepend 'lib/bootstrap.js'
 
 $(document).ready(function () {
 
@@ -16,15 +17,17 @@ $(document).ready(function () {
       for (var i = 0; userData.length > i; i++) {
         if (userData[i].gender == 'male' && userData[i].dob.age >= 30 && userData[i].dob.age <= 40) {
           maleUsers.push(userData[i])
+          document.getElementById("data").innerHTML = "blah"
         }
 
         if (userData[i].gender == 'female' && userData[i].dob.age >= 30 && userData[i].dob.age <= 40) {
           femaleUsers.push(userData[i])
         }
       }
-
-      console.log(femaleUsers)
     })
 
+  console.log(maleUsers)
+
 })
+
 
