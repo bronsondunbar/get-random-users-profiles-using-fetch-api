@@ -3,6 +3,10 @@
 // @codekit-prepend 'lib/bootstrap.bundle.js'
 
 $(document).ready(function() {
+  var minAge = $("#minAge").val(30)
+  var maxAge = $("#maxAge").val(40)
+  var numberOfResults = $("#numberOfResults").val(50)
+
   findUsers("https://randomuser.me/api/1.2/", 50, 30, 40)
 })
 
@@ -19,15 +23,15 @@ $("form").submit(function (event) {
 function findUsers (sourceUrl, numberOfResults, minAge, maxAge) {
   $(".loader").css("visibility", "visible")
 
-  if (minAge == undefined) {
+  if (minAge == undefined || minAge == null) {
     var minAge = 30
   }
 
-  if (maxAge == undefined) {
+  if (maxAge == undefined || maxAge == null) {
     var maxAge = 40
   }
 
-  if (numberOfResults == undefined) {
+  if (numberOfResults == undefined || numberOfResults == null) {
     var numberOfResults = 50
   }
 
