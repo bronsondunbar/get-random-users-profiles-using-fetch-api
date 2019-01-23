@@ -1,0 +1,25 @@
+
+/* Tabs */
+
+.nav-tabs {
+
+	.nav-item {
+
+		.nav-link {
+
+			border: none;
+			padding: 1rem;
+			background-color: rgba($white, 0.7);
+
+		}
+
+		.nav-link.active {
+
+			background-color: $green;
+			color: $white;
+
+		}
+
+	}
+
+}
